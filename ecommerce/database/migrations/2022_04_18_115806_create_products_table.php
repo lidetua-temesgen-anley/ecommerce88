@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
-    /**
+    /*
      * Run the migrations.
      *
      * @return void
@@ -16,10 +16,15 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('unit')->nullable();
+            $table->double('price',82)->nullable();
+            $table->integer('quantity')->nullable();
+            $table->bigIntiger('catagory_id')->foriegn('catagory_id') ->references('id')->on('catagory')-> onDelet('cascad');
         });
     }
 
-    /**
+    /*
      * Reverse the migrations.
      *
      * @return void

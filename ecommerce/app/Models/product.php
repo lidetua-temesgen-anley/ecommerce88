@@ -10,20 +10,15 @@ class product extends Model
     use HasFactory;
 
 protected $fillable = [ 
-    'id' ,     
+      
       'name',       
         'unit', 
         'price',
         'quantity' 
        ];
+       public function catagories()
+       {
+         return $this->belongsTo(catagory::class);
+      }
 }
- function up()   
-  {         Schema::create('product', function (Blueprint $table) {         
-        $table->id();         
-            $table->string('name');          
-               $table->string('unit')->nullable();  
-               $table->double('price')->nullable(); 
-               $table->string('quantity')->nullable();        
-                  $table->timestamps();        
-                 });    
-                 }
+ 
