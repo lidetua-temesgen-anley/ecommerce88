@@ -13,6 +13,8 @@ class catagory extends Model
         'name', 
               
          ];
+
+         //relation
          public function product()
          {
              return $this->hasmany(product::class);
